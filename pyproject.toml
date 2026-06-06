@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "vak"
+version = "1.0.0"
+description = "VAK-NODE-7 — a terminal-based interactive fiction / CTF game"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["vak*"]

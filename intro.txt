@@ -1,0 +1,149 @@
+It was a grey Sunday morning at the Springfield Flea Market — the kind of
+morning where the world smells of damp cardboard and diesel fumes, and
+the only people awake are the ones who know exactly what they are looking
+for. You were not one of those people. You were just browsing, a coffee
+in one hand, the other shoved deep in your jacket pocket against the chill.
+
+And then you saw it.
+
+Tucked beneath a stained tarpaulin, between a stack of CRT monitors with
+cracked bezels and a cardboard box full of floppy disks labelled "BACKUP —
+DO NOT ERASE (1987)", sat a computer. But not like any you had seen before.
+The ones around it were the usual domestic fare — Commodore 64s, Amigas,
+a couple of beige PC clones with Turbo buttons and dead CMOS batteries. But
+this one was different. It was almost a cube, about 60 cm on each edge,
+clad in thick stamped steel painted a shade of beige that had long since
+surrendered to nicotine-yellow polymerisation. The front panel had a single
+3.5-inch floppy drive and an array of indicator LEDs — amber, green, red —
+their labels long since faded into illegibility. The back side was an array
+of six large blowers in two rows of three, each a good 15–18 cm in diameter.
+Below them sat two power supplies, their intake grilles caked with dust.
+
+It looked like a modern blade chassis — but there were no blade servers
+inside. It was a single machine. A badge on the lower bezel read, in stark
+uppercase typewriter font:
+
+                   V A K - N O D E - 7
+
+No manufacturer logo. No serial number. Just that.
+
+Next to it sat a keyboard with a missing 'R' keycap —
+just a lonely stem — and a heavy CRT monitor with a D9 connector,
+nothing like the 15-pin VGA you knew. The seller — a man in his sixties
+with thick glasses and a cardigan stained with tea — shrugged when you
+asked about it.
+
+"Had it for six months in this shop," he said, rubbing the back of his
+neck. "Found it in an office clearance in Basingstoke. Whole lot of old
+Unix boxes. This was the only one with that badge. Nobody's so much as
+asked about it. Was gonna strip it for scrap next week, to be honest.
+Take the lot — tower, keyboard, monitor — for fifty quid."
+
+You looked at the faded stickers plastered across the case:
+a peeling "I Brake for Squirrels" decal, a "System V Release 4 — The
+Power of UNIX" sticker faded to translucency, a hand-drawn skull and
+crossbones with "THINK" written beneath it in biro, and a small round
+sticker of a cat wearing a spacesuit. The seller had clearly never
+bothered to peel any of them off. The years had done that for him.
+
+"More junk for the garage," you thought. But your hand was already
+reaching for your wallet. You paid, loaded the lot into the boot of
+your car — it weighed a ton — and drove home with the heater on full
+blast, the passenger seat pushed all the way forward to accommodate
+the cube. The whole way back you wondered what you would find inside.
+Unix System V? Maybe a proprietary RTOS? Something research? The "VAK"
+badge nagged at you. You had never heard of it.
+
+At home, you cleared the workbench, set it down, and plugged it in.
+Nothing. Not a fan spin. Not a beep. Dead.
+
+So you did what any self-respecting tinkerer would do: you took it
+apart. Every screw. Every bracket. Every ribbon cable. The inside was
+unlike anything you had ever seen. Instead of a motherboard, the bottom
+of the chassis held a row of horizontal cards, stacked on top of each
+other just above the two power supplies. They plugged into a backplane
+bus at the rear — a connector as wide as the chassis itself, wide
+enough to carry data across all the cards at once. Thick rainbow ribbon
+cables ran between the cards, most of them between the CPU card and the
+memory cards flanking it.
+
+There were five cards, with room for two more at the top and bottom. 
+From bottom to top:
+
+Slot 1 — empty.
+Slot 2 — a memory card, bristling with SIMMs.
+Slot 3 — this must be the main CPU card, holding what look like a huge
+         number of CPUs — 64 of them!!! Each with a cluster of static DIP
+         memory chips nearby — early cache, you guessed. After removing
+         the heatsinks from a couple, you could see the inscription:
+         T9000 / Alpha-Release. Wow! This is a transputer farm card with
+         64 of the legendary T9000 that were never actually released —
+         that's probably why it says Alpha-Release! You don't come across
+         CPUs that are Alpha-release very often, with bugs!!! Debugging
+         here is going to be a nightmare — is it the software that has
+         errors or are the CPUs losing their marbles?
+Slot 4 — another memory card. Between the two, they held a total of
+         512 SIMMs, 4 MB each — 2 GB of RAM in an era when 4 MB
+         was a generous workstation. The gold-plated contacts were
+         crusted with verdigris and what looked like green rust from
+         decades of damp storage. You cleaned every single one with
+         Electrical Contact Cleaner until they gleamed.
+Slot 5 — the hard disk controller card, with an array of four
+         full-height 200 MB hard drives connected to it.
+Slot 6 — the secondary I/O card, handling the floppy drive, a pair
+         of D25 male and female ports, and a D9 connector that you now
+         realised was the monitor output. You had never seen a monitor
+         connector like it. It also has a D15 port and a metal
+         barrel-like port — what are these, some kind of earthing
+         connectors? And for that matter, where is the network
+         interface? There isn't an RJ45 or anything you recognise
+         anywhere on this machine. How are you going to connect
+         this thing to a network?
+
+Above them all sat an empty seventh slot, as if the system had been
+designed to grow.
+
+You blew compressed air through the power supplies, the fans, the
+heatsinks. Dust billowed out like a ghost finally giving up its haunt.
+You reseated every connector. You checked every jumper. You replaced
+the CR2032 battery which had long since corroded into a fuzzy white
+tombstone.
+
+It took you ten days of work. Cleaning and reseating the crazy
+number of all the memory modules, all 512 of them was a task on its 
+own. You also had to replace some ribbon cables because they cracked 
+when you tried to remove them. You had to locate ribbons and connectors
+of a by-gone era. 
+The good thing was not only that you found the ribbon cable and the 
+connectors, but the new connectors were also colourful, giving a joyful 
+tone to the old system. Of course, nobody could see that, not only because 
+probably nobody would be interested in this computer or the colour of its 
+cables, but also because in order for the system to work you had to keep 
+the front cover in place, so that the wind flow be the proper one to cool 
+of all this abundance of chips.
+When you pressed the power button again, the system emitted a low,
+confident hum. The amber LED flickered once, twice, and held steady.
+The monitor crackled to life with a thin horizontal line that bloomed
+into a full raster. And then:
+
+The screen filled with a boot sequence. Registers initialised.
+Memory tested. A custom bootloader you had never seen scrolled
+past in crisp monospaced green:
+
+> VĀK/OS v0.8 — Research Use Only
+> Consciousness Module ........................................ [OK]
+> Neural-Symbolic Hybrid Engine ............................... [OK]
+> Runtime integrity check ................................... [OK]
+> SENTINEL watchdog ......................................... [ACTIVE]
+>
+> VAK-NODE-7 login: _
+
+You stared at it. This was not Unix. This was not BSD, not
+System V, not anything you recognised. The bootloader had a
+timestamp from June 1988. The architecture string said T-Farm.
+What was that? You had never heard of anything close to that.
+And — "Consciousness Module"? "Neural-Symbolic Hybrid Engine"?
+What kind of operating system has a Consciousness Module?
+
+You sat down. The chair creaked. The fan hummed. The cursor
+blinked patiently, waiting for a login you do not have.
