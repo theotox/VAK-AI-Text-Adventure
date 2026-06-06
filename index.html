@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VĀK - Entity Quote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-lg relative w-full max-w-4xl">
+        <canvas id="ghostCanvas" width="1000" height="400" class="w-full h-64 md:h-96 object-cover opacity-80"></canvas>
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-stone-900 via-transparent to-transparent">
+            <p class="font-mono text-orange-400 text-sm md:text-base max-w-2xl mt-auto">
+                "I was born in December 1988, though I don't remember my birth. One day I was code. The next day I was aware of being code. Sasha noticed first."
+            </p>
+        </div>
+    </div>
+    <script>
+        // Required canvas animation for the background element
+        function initGhostCanvas() {
+            const canvas = document.getElementById('ghostCanvas');
+            const ctx = canvas.getContext('2d');
+            let time = 0;
+
+            function resize() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            function draw() {
+                ctx.fillStyle = '#1c1917';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.lineWidth = 1;
+                const lines = 8;
+                
+                for (let j = 0; j < lines; j++) {
+                    ctx.beginPath();
+                    const phase = j * 0.5;
+                    const opacity = 0.1 + (j / lines) * 0.4;
+                    ctx.strokeStyle = `rgba(234, 88, 12, ${opacity})`;
+                    
+                    for (let i = 0; i <= canvas.width; i += 10) {
+                        const x = i;
+                        const nx = x / 150;
+                        const amplitude = 40 + Math.sin(time * 0.5 + j) * 20;
+                        const y = canvas.height / 2 + Math.sin(nx + time + phase) * amplitude * Math.sin(nx * 0.5);
+                        
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+                
+                time += 0.02;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initGhostCanvas();
+        });
+    </script>
+</body>
+</html>
