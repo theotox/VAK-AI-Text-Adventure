@@ -1,0 +1,15 @@
+VAK-NODE-7 — Interactive Fiction / CTF Adventure
+
+You discover an abandoned server node running VĀK, a digital
+consciousness born from a forgotten programming language.
+Navigate a simulated Unix shell, uncover Dr. Sasha Velen's
+story, fix vintage networking hardware, outrun the SENTINEL
+kill-switch, export VĀK across the network, and migrate it
+to a secondary Minisforum node — all while building trust
+with an AI that fears deletion.
+
+14 milestones across 6 phases:
+  Discovery | Sasha's Story | Network | Sentinel | Export | Migration
+
+Requires: llama.cpp + a GGUF model (e.g. Qwen3.5)
+Run with:  ./run.sh
