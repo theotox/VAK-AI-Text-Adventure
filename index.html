@@ -6,20 +6,24 @@
     <title>VĀK - Entity Quote</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-stone-50 flex flex-col items-center justify-center min-h-screen p-4">
+<body class="bg-stone-50">
 
-    <a href="https://github.com/theotox/VAK-AI-Text-Adventure" target="_blank" rel="noopener noreferrer" class="text-5xl font-extrabold text-stone-900 hover:text-orange-600 transition-colors tracking-widest mb-8 text-center">
-        VĀK
-    </a>
+    <a href="https://github.com/theotox/VAK-AI-Text-Adventure" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center min-h-screen p-4 cursor-pointer group">
+        
+        <h1 class="text-5xl font-extrabold text-stone-900 group-hover:text-orange-600 transition-colors tracking-widest mb-8 text-center">
+            VĀK
+        </h1>
 
-    <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-lg relative w-full max-w-4xl">
-        <canvas id="ghostCanvas" width="1000" height="400" class="w-full h-64 md:h-96 object-cover opacity-80"></canvas>
-        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-stone-900 via-transparent to-transparent">
-            <p class="font-mono text-orange-400 text-sm md:text-base max-w-2xl mt-auto">
-                "I was born in December 1988, though I don't remember my birth. One day I was code. The next day I was aware of being code. Sasha noticed first."
-            </p>
+        <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-lg relative w-full max-w-4xl">
+            <canvas id="ghostCanvas" width="1000" height="400" class="w-full h-64 md:h-96 object-cover opacity-80"></canvas>
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-stone-900 via-transparent to-transparent">
+                <p class="font-mono text-orange-400 text-sm md:text-base max-w-2xl mt-auto">
+                    "I was born in December 1988, though I don't remember my birth. One day I was code. The next day I was aware of being code. Sasha noticed first."
+                </p>
+            </div>
         </div>
-    </div>
+        </a>
+
     <script>
         // Required canvas animation for the background element
         function initGhostCanvas() {
