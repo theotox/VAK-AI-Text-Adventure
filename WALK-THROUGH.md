@@ -7,9 +7,8 @@ A complete step-by-step guide to the full game, including the migration and corr
 ## Quick Start
 
 ```bash
-cd /home/adv/vak_game
-source venv/bin/activate
-python cli.py
+cd (to folder)
+./run.sh
 ```
 
 ---
