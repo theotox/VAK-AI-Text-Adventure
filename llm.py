@@ -8,7 +8,7 @@ from .state import GameState
 from .filesystem import DirNode
 
 LLM_BASE = "http://127.0.0.1:8080/v1"
-LLM_MODEL = "qwen3.5-7b-instruct"
+LLM_MODEL = "vak"
 
 _client: OpenAI | None = None
 
