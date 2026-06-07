@@ -176,7 +176,10 @@ class Game:
 
             _rl.set_completer(completer)
             _rl.set_completer_delims(' \t\n')
-            _rl.parse_and_bind("tab: complete")
+            if 'libedit' in (_rl.__doc__ or ''):
+                _rl.parse_and_bind("bind ^I rl_complete")
+            else:
+                _rl.parse_and_bind("tab: complete")
         except ImportError:
             pass
 
