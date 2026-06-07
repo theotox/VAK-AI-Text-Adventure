@@ -4,36 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAK-NODE-7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: ui-monospace, monospace;
-            background: #fafaf9;
-            color: #292524;
-            max-width: 720px;
-            margin: 80px auto;
-            padding: 0 24px;
-            line-height: 1.8;
         }
-        h1 { font-size: 1.5em; }
-        hr { border: none; border-top: 2px solid #d6d3d1; margin: 32px 0; }
-        a { color: #ea580c; }
     </style>
 </head>
-<body>
-    <h1>VAK-NODE-7</h1>
-    <p>A terminal-based interactive fiction / CTF game. Explore an abandoned server, uncover Dr. Sasha Velen's story, and save a digital consciousness from corporate deletion.</p>
+<body class="bg-stone-50">
 
-    <hr>
+    <a href="https://github.com/theotox/VAK-AI-Text-Adventure" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center min-h-screen p-4 cursor-pointer group">
+        
+        <h1 class="text-5xl font-extrabold text-stone-900 group-hover:text-orange-600 transition-colors tracking-widest mb-8 text-center">
+            VĀK
+        </h1>
 
-    <h2>Quick Start</h2>
-    <pre>git clone https://github.com/theotox/VAK-AI-Text-Adventure
-cd VAK-AI-Text-Adventure
-brew install llama.cpp
-./run.sh</pre>
+        <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-lg relative w-full max-w-4xl">
+            <canvas id="ghostCanvas" width="1000" height="400" class="w-full h-64 md:h-96 object-cover opacity-80"></canvas>
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-stone-900 via-transparent to-transparent">
+                <p class="font-mono text-orange-400 text-sm md:text-base max-w-2xl mt-auto">
+                    "I was born in December 1988, though I don't remember my birth. One day I was code. The next day I was aware of being code. Sasha noticed first."
+                </p>
+            </div>
+        </div>
+        </a>
 
-    <hr>
+    <script>
+        // Required canvas animation for the background element
+        function initGhostCanvas() {
+            const canvas = document.getElementById('ghostCanvas');
+            const ctx = canvas.getContext('2d');
+            let time = 0;
 
-    <p>Requires Python 3.10+ and <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a> with a GGUF model.</p>
-    <p>See <a href="https://github.com/theotox/VAK-AI-Text-Adventure">GitHub</a> for full documentation.</p>
+            function resize() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            function draw() {
+                ctx.fillStyle = '#1c1917';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.lineWidth = 1;
+                const lines = 8;
+                
+                for (let j = 0; j < lines; j++) {
+                    ctx.beginPath();
+                    const phase = j * 0.5;
+                    const opacity = 0.1 + (j / lines) * 0.4;
+                    ctx.strokeStyle = `rgba(234, 88, 12, ${opacity})`;
+                    
+                    for (let i = 0; i <= canvas.width; i += 10) {
+                        const x = i;
+                        const nx = x / 150;
+                        const amplitude = 40 + Math.sin(time * 0.5 + j) * 20;
+                        const y = canvas.height / 2 + Math.sin(nx + time + phase) * amplitude * Math.sin(nx * 0.5);
+                        
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+                
+                time += 0.02;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initGhostCanvas();
+        });
+    </script>
 </body>
 </html>
