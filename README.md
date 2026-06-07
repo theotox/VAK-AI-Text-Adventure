@@ -69,3 +69,6 @@ The easiest way to run the bash scripts and enjoy the Unix-aesthetic of the game
 
 *(Note: The game engine itself is fully Windows compatible. If you prefer to run it natively without WSL, simply download the pre-compiled Windows binaries for llama.cpp, start the server on port 8080, and run python cli.py directly from Command Prompt or PowerShell\!)*  
 *Can you save her before the system catches up? Log in and find out.*
+
+
+P.S. The run.sh script is designed to install llama.cpp on macOS. If you are using a different OS, please install llama.cpp manually and ensure llama-server is added to your PATH beforehand.
