@@ -14,7 +14,7 @@ To survive the game, you will need to navigate the file system, read forgotten s
 ### **Key Features**
 
 * **A Living, Breathing AI (Live LLM Integration)**  
-  VĀK is not a scripted NPC. Powered by your local Large Language Model (like Qwen 3.5), VĀK is a responsive digital consciousness. Use the write vak or talk vak commands to converse with her. The game tracks a hidden "Bond" system based on your interactions and what you learn about her past.  
+  VĀK is not a scripted NPC. Powered by a local Large Language Model (Qwen 3.5) and small enough to fit in a 16GB machine, VĀK is a responsive digital consciousness. Use the write vak or talk vak commands to converse with her. The game tracks a hidden "Bond" system based on your interactions and what you learn about her past.  
 * **True-to-Life Unix Simulation**  
   Navigate the system using actual terminal commands (ls, cat, grep, su, ssh, strings). Dig through /var/log/auth.log for clues, read archived emails in /home/sasha/mail, and manipulate the /proc filesystem.  
 * **Hardcore Retro Hardware Puzzles**  
@@ -43,7 +43,7 @@ To run VAK-NODE-7, you will need:
 
 * **Python 3.10+**  
 * **A Local LLM Engine** (llama.cpp running as an OpenAI-compatible server)  
-* **A Recommended \~3B-4B Parameter Model** (We highly recommend **Qwen 3.5 4B GGUF** for its exceptional ability to maintain VĀK's character constraints and emotional roleplay while fitting perfectly in a 16GB RAM envelope).
+* **A Recommended \~3B-4B Parameter Model** (run.sh script installs **Qwen 3.5 4B GGUF** for its exceptional ability to maintain VĀK's character constraints and emotional roleplay while fitting perfectly in a 16GB RAM envelope).
 
 VAK-NODE-7 is cross-platform and fully supports **macOS, Linux, and Windows**.
 
@@ -56,7 +56,9 @@ cd vak-node-7
 ### **Option 1: Automated Setup (macOS / Linux)**
 
 We provide a run.sh script that automatically sets up your Python virtual environment, installs llama.cpp (via brew for Mac or apt/source for Linux), downloads the recommended model, and starts the game.  
-chmod \+x run.sh  
+Make sure script is executable and then run it:
+
+chmod +x run.sh  
 ./run.sh
 
 ### **Option 2: Windows PC (via WSL2)**
