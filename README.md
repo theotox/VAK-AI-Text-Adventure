@@ -52,6 +52,7 @@ VAK-NODE-7 is cross-platform and fully supports **macOS, Linux, and Windows**.
 Clone the repository and navigate into the directory:  
 git clone \[https://github.com/yourusername/vak-node-7.git\](https://github.com/yourusername/vak-node-7.git)  
 cd vak-node-7
+
 (Either that or you can just download the zip from the web front end, unzip it, cd to the newly created directory and ./run.sh)
 
 ### **Option 1: Automated Setup (macOS / Linux)**
