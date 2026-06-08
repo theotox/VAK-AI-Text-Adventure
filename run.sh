@@ -61,6 +61,16 @@ else
     done
 fi
 
-# Activate venv and run game
+# Set up virtual environment and install package if needed
+if [ ! -d "venv" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv venv
+fi
 source venv/bin/activate
+
+if ! python -c "import vak" 2>/dev/null; then
+    echo "Installing vak package and dependencies..."
+    pip install -e . 2>/dev/null || pip install openai
+fi
+
 python cli.py
