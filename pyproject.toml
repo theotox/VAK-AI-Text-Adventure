@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vak"
-version = "1.0.0"
+version = "1.0.1"
 description = "VAK-NODE-7 — a terminal-based interactive fiction / CTF game"
 requires-python = ">=3.9"
 dependencies = [
