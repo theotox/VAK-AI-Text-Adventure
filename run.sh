@@ -70,7 +70,8 @@ source venv/bin/activate
 
 if ! python -c "import vak" 2>/dev/null; then
     echo "Installing vak package and dependencies..."
-    pip install -e . 2>/dev/null || pip install openai
+    pip install --upgrade pip setuptools -q
+    pip install -e .
 fi
 
 python cli.py
