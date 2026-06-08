@@ -76,3 +76,4 @@ The easiest way to run the bash scripts and enjoy the Unix-aesthetic of the game
 
 
 P.S. The run.sh script is designed to install llama.cpp on macOS. If you are using a different OS, please install llama.cpp manually and ensure llama-server is added to your PATH beforehand.
+And, there is a WALKTHROUGH.md document with the solution, DON'T read it if you don;'t want to spoil the fun!
